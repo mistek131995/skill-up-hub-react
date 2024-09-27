@@ -1,6 +1,7 @@
 import React from 'react';
 import {LoginRequest} from "./grpc/AuthService_pb";
 import {AuthServiceClient} from "./grpc/AuthServiceServiceClientPb";
+import {Registration} from "../pages/registration";
 
 const App = () => {
     const client = new AuthServiceClient("http://localhost:5180/")
@@ -12,7 +13,7 @@ const App = () => {
         console.log(err, response);
     })
 
-    return <h1>Hello, React with TypeScript and Webpack!</h1>;
+    return <Registration/>
 };
 
 export default App;
