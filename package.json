@@ -11,7 +11,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@mistek/freedom-ui": "^0.0.41",
+    "@mistek/freedom-ui": "^0.0.44",
+    "bootstrap-icons": "^1.11.3",
     "google-protobuf": "^3.21.4",
     "grpc-web": "^1.5.0",
     "react": "^18.3.1",
@@ -23,6 +24,8 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.0",
+    "sass": "^1.79.4",
+    "sass-loader": "^16.0.2",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.6.2",

@@ -20,10 +20,45 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.css$/,
+                test: /\.css$/i,
+                exclude: /\.module\.css$/i, // Исключаем файлы с .module.css
+                use: [
+                    'style-loader',
+                    'css-loader', // Для обычных CSS файлов без модулей
+                ],
+            },
+            {
+                test: /\.module\.css$/i, // Обрабатываем только файлы с .module.css
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true, // Включаем CSS Modules только для .module.css файлов
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.s[ac]ss$/i, // Для обычных Sass файлов
+                exclude: /\.module\.(s[ac]ss)$/i, // Исключаем файлы с .module.scss и .module.sass
                 use: [
                     'style-loader', // Добавляет стили в DOM
-                    'css-loader'    // Загружает CSS-файлы
+                    'css-loader',   // Переводит CSS в CommonJS
+                    'sass-loader',  // Компилирует Sass в CSS
+                ],
+            },
+            {
+                test: /\.module\.(s[ac]ss)$/i, // Для Sass Modules (файлы с .module.scss и .module.sass)
+                use: [
+                    'style-loader', // Добавляет стили в DOM
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true, // Включаем CSS Modules только для .module.scss файлов
+                        },
+                    },
+                    'sass-loader',  // Компилирует Sass в CSS
                 ],
             },
         ],
