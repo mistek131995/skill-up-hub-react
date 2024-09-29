@@ -125,5 +125,48 @@ export class AuthServiceClient {
     this.methodDescriptorRegister);
   }
 
+  methodDescriptorRestorePassword = new grpcWeb.MethodDescriptor(
+    '/AuthService.AuthService/RestorePassword',
+    grpcWeb.MethodType.UNARY,
+    AuthService_pb.RestorePasswordRequest,
+    AuthService_pb.RestorePasswordResponse,
+    (request: AuthService_pb.RestorePasswordRequest) => {
+      return request.serializeBinary();
+    },
+    AuthService_pb.RestorePasswordResponse.deserializeBinary
+  );
+
+  restorePassword(
+    request: AuthService_pb.RestorePasswordRequest,
+    metadata?: grpcWeb.Metadata | null): Promise<AuthService_pb.RestorePasswordResponse>;
+
+  restorePassword(
+    request: AuthService_pb.RestorePasswordRequest,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.RpcError,
+               response: AuthService_pb.RestorePasswordResponse) => void): grpcWeb.ClientReadableStream<AuthService_pb.RestorePasswordResponse>;
+
+  restorePassword(
+    request: AuthService_pb.RestorePasswordRequest,
+    metadata?: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.RpcError,
+               response: AuthService_pb.RestorePasswordResponse) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/AuthService.AuthService/RestorePassword',
+        request,
+        metadata || {},
+        this.methodDescriptorRestorePassword,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/AuthService.AuthService/RestorePassword',
+    request,
+    metadata || {},
+    this.methodDescriptorRestorePassword);
+  }
+
 }
 

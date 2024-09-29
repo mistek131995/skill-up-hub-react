@@ -12,10 +12,10 @@
   "description": "",
   "dependencies": {
     "@mistek/freedom-ui": "^0.0.45",
-    "bootstrap-icons": "^1.11.3",
     "google-protobuf": "^3.21.4",
     "grpc-web": "^1.5.0",
     "react": "^18.3.1",
+    "react-bootstrap-icons": "^1.11.4",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
@@ -32,5 +32,13 @@
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
-  }
+  },
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "src/global.d.ts",
+    "src/**/*"
+  ]
 }

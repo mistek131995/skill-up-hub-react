@@ -9,6 +9,9 @@ export class LoginRequest extends jspb.Message {
   getPassword(): string;
   setPassword(value: string): LoginRequest;
 
+  getToken(): string;
+  setToken(value: string): LoginRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): LoginRequest.AsObject;
   static toObject(includeInstance: boolean, msg: LoginRequest): LoginRequest.AsObject;
@@ -21,6 +24,7 @@ export namespace LoginRequest {
   export type AsObject = {
     login: string,
     password: string,
+    token: string,
   }
 }
 
@@ -52,6 +56,9 @@ export class RegisterRequest extends jspb.Message {
   getEmail(): string;
   setEmail(value: string): RegisterRequest;
 
+  getToken(): string;
+  setToken(value: string): RegisterRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RegisterRequest.AsObject;
   static toObject(includeInstance: boolean, msg: RegisterRequest): RegisterRequest.AsObject;
@@ -65,6 +72,7 @@ export namespace RegisterRequest {
     login: string,
     password: string,
     email: string,
+    token: string,
   }
 }
 
@@ -81,6 +89,42 @@ export class RegisterResponse extends jspb.Message {
 }
 
 export namespace RegisterResponse {
+  export type AsObject = {
+    issuccess: boolean,
+  }
+}
+
+export class RestorePasswordRequest extends jspb.Message {
+  getEmail(): string;
+  setEmail(value: string): RestorePasswordRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RestorePasswordRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: RestorePasswordRequest): RestorePasswordRequest.AsObject;
+  static serializeBinaryToWriter(message: RestorePasswordRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RestorePasswordRequest;
+  static deserializeBinaryFromReader(message: RestorePasswordRequest, reader: jspb.BinaryReader): RestorePasswordRequest;
+}
+
+export namespace RestorePasswordRequest {
+  export type AsObject = {
+    email: string,
+  }
+}
+
+export class RestorePasswordResponse extends jspb.Message {
+  getIssuccess(): boolean;
+  setIssuccess(value: boolean): RestorePasswordResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RestorePasswordResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: RestorePasswordResponse): RestorePasswordResponse.AsObject;
+  static serializeBinaryToWriter(message: RestorePasswordResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RestorePasswordResponse;
+  static deserializeBinaryFromReader(message: RestorePasswordResponse, reader: jspb.BinaryReader): RestorePasswordResponse;
+}
+
+export namespace RestorePasswordResponse {
   export type AsObject = {
     issuccess: boolean,
   }
