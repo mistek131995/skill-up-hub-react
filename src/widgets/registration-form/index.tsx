@@ -1,5 +1,5 @@
 import {Button, ButtonBackground, Flex, Form, Input, Orientation} from "@mistek/freedom-ui";
-import * as styles from "./module.module.css";
+import * as styles from "./styles.module.css";
 
 export const RegistrationForm = () => {
 
