@@ -1,7 +1,8 @@
 import {RegistrationForm} from "../../widgets/registration-form";
+import {Flex, JustifyContent} from "@mistek/freedom-ui";
 
 export const Registration = () => {
-    return <>
+    return <Flex justifyContent={JustifyContent.center}>
         <RegistrationForm/>
-    </>
+    </Flex>
 }

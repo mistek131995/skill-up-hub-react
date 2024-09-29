@@ -1,7 +1,9 @@
 import {Button, ButtonBackground, Flex, Form, Input, Orientation} from "@mistek/freedom-ui";
+import * as styles from "./module.module.css";
 
 export const RegistrationForm = () => {
-    return <Flex orientation={Orientation.vertical}>
+
+    return <Flex orientation={Orientation.vertical} className={styles.container}>
         <Form handleSubmit={(form) => console.log(form)}>
             <Input name="login" placeholder="Введите логин"/>
             <Input name="email" placeholder="Введите почту"/>
