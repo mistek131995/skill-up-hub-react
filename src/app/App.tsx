@@ -1,17 +1,17 @@
-import React, {Suspense} from 'react';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import React from 'react';
+import {BrowserRouter} from "react-router-dom";
+import {ToastProvider} from "@mistek/freedom-ui";
+import {AuthRoute} from "./routes/AuthRoute";
 
 
 const App = () => {
-    const RegistrationPage = React.lazy(() => import("../pages/registration/index"));
-
-    return <BrowserRouter>
-        <Suspense fallback={<div>Loading...</div>}>
-            <Routes>
-                <Route path="/" element={<RegistrationPage/>}/>
-            </Routes>
-        </Suspense>
-    </BrowserRouter>
+    return <>
+        <ToastProvider>
+            <BrowserRouter>
+                <AuthRoute/>
+            </BrowserRouter>
+        </ToastProvider>
+    </>
 };
 
 export default App;

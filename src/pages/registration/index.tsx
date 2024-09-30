@@ -1,4 +1,4 @@
-import {RegistrationForm} from "../../widgets/registration-form";
+import {RegistrationForm} from "../../features/registration-form/ui";
 import {AlignmentItems, Flex, JustifyContent} from "@mistek/freedom-ui";
 import * as styles from "./styles.module.scss";
 
