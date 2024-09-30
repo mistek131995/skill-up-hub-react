@@ -1,19 +1,17 @@
-import React from 'react';
-import {LoginRequest} from "./grpc/AuthService_pb";
-import {AuthServiceClient} from "./grpc/AuthServiceServiceClientPb";
-import {Registration} from "../pages/registration";
+import React, {Suspense} from 'react';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+
 
 const App = () => {
-    // const client = new AuthServiceClient("http://localhost:5180/")
-    // const request = new LoginRequest();
-    // request.setPassword("123456");
-    // request.setLogin("aaa");
-    //
-    // client.login(request, {}, (err, response) => {
-    //     console.log(err, response);
-    // })
+    const RegistrationPage = React.lazy(() => import("../pages/registration/index"));
 
-    return <Registration/>
+    return <BrowserRouter>
+        <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+                <Route path="/" element={<RegistrationPage/>}/>
+            </Routes>
+        </Suspense>
+    </BrowserRouter>
 };
 
 export default App;

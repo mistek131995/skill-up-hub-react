@@ -11,7 +11,12 @@ const sendRegistrationForm = action((form:any) => {
     request.setToken("Token");
 
     client.register(request, {}, (err, response) => {
-        console.log(err, response);
+
+        if(err){
+            alert(err.message);
+        } else {
+            console.log(response);
+        }
     })
 })
 
