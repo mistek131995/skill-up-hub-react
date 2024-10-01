@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import * as styles from "./styles.module.scss";
 
 export const TopMenu = () => {
-    return <FTopMenu className={styles.test}>
+    return <FTopMenu className={styles.topMenuContainer}>
         <div>
             <Link to="/">
                 <TopMenuItem title="Главная"/>

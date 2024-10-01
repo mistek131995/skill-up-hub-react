@@ -1,5 +1,5 @@
 import {Button, ButtonBackground, Flex, Form, Input, Orientation, useToast} from "@mistek/freedom-ui";
-import * as styles from "../style/styles.module.css";
+import * as styles from "../style/styles.module.scss";
 import {EnvelopeAt, Key, Person} from "react-bootstrap-icons";
 import {observer} from "mobx-react-lite";
 import {sendRegistrationForm} from "../store/registrationFormState";

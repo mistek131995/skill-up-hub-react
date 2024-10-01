@@ -34,7 +34,10 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: true, // Включаем CSS Modules только для .module.css файлов
+                            modules: {
+                                localIdentName: '[name]__[local]___[hash:base64:5]', // Настройка имен классов
+                                exportLocalsConvention: 'camelCase', // Включение camelCase
+                            }
                         },
                     },
                 ],
@@ -55,7 +58,11 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: true, // Включаем CSS Modules только для .module.scss файлов
+                            //modules: true,  Включаем CSS Modules только для .module.scss файлов
+                            modules: {
+                                localIdentName: '[name]__[local]___[hash:base64:5]', // Настройка имен классов
+                                exportLocalsConvention: 'camelCase', // Включение camelCase
+                            }
                         },
                     },
                     'sass-loader',  // Компилирует Sass в CSS
