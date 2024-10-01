@@ -1,0 +1,12 @@
+.test{
+  justify-content: space-between;
+
+  div{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & > :last-child div div{
+    left: auto;
+  }
+}

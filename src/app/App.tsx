@@ -1,14 +1,14 @@
 import React from 'react';
 import {BrowserRouter} from "react-router-dom";
 import {ToastProvider} from "@mistek/freedom-ui";
-import {AuthRoute} from "./routes/AuthRoute";
+import {PublicRoute} from "./routes/PublicRoute";
 
 
 const App = () => {
     return <>
         <ToastProvider>
             <BrowserRouter>
-                <AuthRoute/>
+                <PublicRoute/>
             </BrowserRouter>
         </ToastProvider>
     </>
