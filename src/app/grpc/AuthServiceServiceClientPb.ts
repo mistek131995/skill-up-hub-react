@@ -168,5 +168,48 @@ export class AuthServiceClient {
     this.methodDescriptorRestorePassword);
   }
 
+  methodDescriptorRefreshToken = new grpcWeb.MethodDescriptor(
+    '/AuthService.AuthService/RefreshToken',
+    grpcWeb.MethodType.UNARY,
+    AuthService_pb.RefreshTokenRequest,
+    AuthService_pb.RefreshTokenResponse,
+    (request: AuthService_pb.RefreshTokenRequest) => {
+      return request.serializeBinary();
+    },
+    AuthService_pb.RefreshTokenResponse.deserializeBinary
+  );
+
+  refreshToken(
+    request: AuthService_pb.RefreshTokenRequest,
+    metadata?: grpcWeb.Metadata | null): Promise<AuthService_pb.RefreshTokenResponse>;
+
+  refreshToken(
+    request: AuthService_pb.RefreshTokenRequest,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.RpcError,
+               response: AuthService_pb.RefreshTokenResponse) => void): grpcWeb.ClientReadableStream<AuthService_pb.RefreshTokenResponse>;
+
+  refreshToken(
+    request: AuthService_pb.RefreshTokenRequest,
+    metadata?: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.RpcError,
+               response: AuthService_pb.RefreshTokenResponse) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/AuthService.AuthService/RefreshToken',
+        request,
+        metadata || {},
+        this.methodDescriptorRefreshToken,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/AuthService.AuthService/RefreshToken',
+    request,
+    metadata || {},
+    this.methodDescriptorRefreshToken);
+  }
+
 }
 

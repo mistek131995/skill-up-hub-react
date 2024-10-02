@@ -29,8 +29,8 @@ export namespace LoginRequest {
 }
 
 export class LoginResponse extends jspb.Message {
-  getToken(): string;
-  setToken(value: string): LoginResponse;
+  getAccesstoken(): string;
+  setAccesstoken(value: string): LoginResponse;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): LoginResponse.AsObject;
@@ -42,7 +42,7 @@ export class LoginResponse extends jspb.Message {
 
 export namespace LoginResponse {
   export type AsObject = {
-    token: string,
+    accesstoken: string,
   }
 }
 
@@ -127,6 +127,42 @@ export class RestorePasswordResponse extends jspb.Message {
 export namespace RestorePasswordResponse {
   export type AsObject = {
     issuccess: boolean,
+  }
+}
+
+export class RefreshTokenRequest extends jspb.Message {
+  getRefreshtoken(): string;
+  setRefreshtoken(value: string): RefreshTokenRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RefreshTokenRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: RefreshTokenRequest): RefreshTokenRequest.AsObject;
+  static serializeBinaryToWriter(message: RefreshTokenRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RefreshTokenRequest;
+  static deserializeBinaryFromReader(message: RefreshTokenRequest, reader: jspb.BinaryReader): RefreshTokenRequest;
+}
+
+export namespace RefreshTokenRequest {
+  export type AsObject = {
+    refreshtoken: string,
+  }
+}
+
+export class RefreshTokenResponse extends jspb.Message {
+  getAccesstoken(): string;
+  setAccesstoken(value: string): RefreshTokenResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RefreshTokenResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: RefreshTokenResponse): RefreshTokenResponse.AsObject;
+  static serializeBinaryToWriter(message: RefreshTokenResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RefreshTokenResponse;
+  static deserializeBinaryFromReader(message: RefreshTokenResponse, reader: jspb.BinaryReader): RefreshTokenResponse;
+}
+
+export namespace RefreshTokenResponse {
+  export type AsObject = {
+    accesstoken: string,
   }
 }
 
