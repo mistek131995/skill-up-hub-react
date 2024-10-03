@@ -11,9 +11,7 @@ const sendLoginForm = action(async (form: any, addToast: (toast: IToast) => void
     request.setPassword(form.password);
     request.setToken("Token");
 
-    client.login(request, {
-        "User-Agent": navigator.userAgent,
-        "Fingerprint": await generateFingerprint()
+    client.login(request, {        "Fingerprint": await generateFingerprint()
     }, (err, response) => {
         if(err){
             addToast({

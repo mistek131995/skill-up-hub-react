@@ -18,6 +18,7 @@
 import * as grpcWeb from 'grpc-web';
 
 import * as AuthService_pb from './AuthService_pb'; // proto import: "AuthService.proto"
+import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb'; // proto import: "google/protobuf/empty.proto"
 
 
 export class AuthServiceClient {
@@ -171,26 +172,26 @@ export class AuthServiceClient {
   methodDescriptorRefreshToken = new grpcWeb.MethodDescriptor(
     '/AuthService.AuthService/RefreshToken',
     grpcWeb.MethodType.UNARY,
-    AuthService_pb.RefreshTokenRequest,
+    google_protobuf_empty_pb.Empty,
     AuthService_pb.RefreshTokenResponse,
-    (request: AuthService_pb.RefreshTokenRequest) => {
+    (request: google_protobuf_empty_pb.Empty) => {
       return request.serializeBinary();
     },
     AuthService_pb.RefreshTokenResponse.deserializeBinary
   );
 
   refreshToken(
-    request: AuthService_pb.RefreshTokenRequest,
+    request: google_protobuf_empty_pb.Empty,
     metadata?: grpcWeb.Metadata | null): Promise<AuthService_pb.RefreshTokenResponse>;
 
   refreshToken(
-    request: AuthService_pb.RefreshTokenRequest,
+    request: google_protobuf_empty_pb.Empty,
     metadata: grpcWeb.Metadata | null,
     callback: (err: grpcWeb.RpcError,
                response: AuthService_pb.RefreshTokenResponse) => void): grpcWeb.ClientReadableStream<AuthService_pb.RefreshTokenResponse>;
 
   refreshToken(
-    request: AuthService_pb.RefreshTokenRequest,
+    request: google_protobuf_empty_pb.Empty,
     metadata?: grpcWeb.Metadata | null,
     callback?: (err: grpcWeb.RpcError,
                response: AuthService_pb.RefreshTokenResponse) => void) {
