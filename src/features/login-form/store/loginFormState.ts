@@ -1,26 +1,24 @@
 import {action} from "mobx";
-import {IToast, ToastBackground} from "@mistek/freedom-ui";
-import {AuthServiceClient} from "../../../app/grpc/AuthServiceServiceClientPb";
-import {LoginRequest} from "../../../app/grpc/AuthService_pb";
+import {IToast} from "@mistek/freedom-ui";
+import {AuthServiceClient} from "../../../shared/grpcClients/auth/AuthServiceServiceClientPb";
+import {LoginRequest} from "../../../shared/grpcClients/auth/AuthService_pb";
 import {generateFingerprint} from "../../../shared/utlis/generateFingerprint";
+import {grpcErrorHandler} from "../../../shared/grpcClients/grpcErrorHandler";
 
 const sendLoginForm = action(async (form: any, addToast: (toast: IToast) => void) => {
-    const client = new AuthServiceClient("http://localhost:5180/");
+    const client = new AuthServiceClient("http://localhost:8080/");
     const request = new LoginRequest();
     request.setLogin(form.login);
     request.setPassword(form.password);
     request.setToken("Token");
 
-    client.login(request, {        "Fingerprint": await generateFingerprint()
+    client.login(request, {
+        "Fingerprint": await generateFingerprint()
     }, (err, response) => {
         if(err){
-            addToast({
-                label: "Ошибка",
-                description: err.message,
-                bg: ToastBackground.danger
-            })
+            grpcErrorHandler(err, addToast)
         } else {
-            console.log(response);
+            localStorage.setItem("token", response.getAccesstoken())
         }
     })
 })
