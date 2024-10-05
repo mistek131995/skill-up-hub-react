@@ -8,7 +8,7 @@ export const LoginForm = () => {
     const iconSize = 25;
 
     return <Flex orientation={Orientation.vertical} className={styles.container}>
-        <Form handleSubmit={(form) => sendLoginForm(form, addToast)}>
+        <Form handleSubmit={(form) => sendLoginForm(form)}>
             <Input name="login" placeholder="Введите логин" iconLeft={<Person width={iconSize} height={iconSize}/>}/>
             <Input name="password" placeholder="Введите пароль" type="password" iconLeft={<Key width={iconSize} height={iconSize}/>}/>
             <Button bg={ButtonBackground.success}>Войти в аккаунт</Button>
