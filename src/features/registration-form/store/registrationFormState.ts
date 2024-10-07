@@ -2,6 +2,7 @@ import {action} from "mobx";
 import {AuthServiceClient} from "../../../shared/grpcClients/auth/AuthServiceServiceClientPb";
 import {RegisterRequest} from "../../../shared/grpcClients/auth/AuthService_pb";
 import {ServerResponse} from "../../../entities/ServerResponse";
+import {grpcClient} from "../../../shared/grpcClients/auth/grpcClient";
 
 const sendRegistrationForm = action(async (form:any) : Promise<ServerResponse> => {
     const client = new AuthServiceClient("http://localhost:8080/")
@@ -28,5 +29,11 @@ const sendRegistrationForm = action(async (form:any) : Promise<ServerResponse> =
         return error as ServerResponse;
     }
 })
+
+const tes = async () => {
+    await grpcClient<AuthServiceClient, RegisterRequest>().then((x) => {
+        const client = new AuthServiceClient("http://localhost:8080/")
+    })
+}
 
 export {sendRegistrationForm}

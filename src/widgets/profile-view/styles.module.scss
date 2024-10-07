@@ -1,0 +1,12 @@
+.profile-view-container{
+  display: flex;
+  flex: 1;
+
+  & > *{
+    flex: 1;
+
+    & > *:not(:last-child){
+      margin-bottom: 0.3rem;
+    }
+  }
+}

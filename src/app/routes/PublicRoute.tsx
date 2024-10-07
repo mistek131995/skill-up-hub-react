@@ -6,6 +6,7 @@ export const PublicRoute = () => {
     const IndexPage = React.lazy(() => import("../../pages/index/index"));
     const RegistrationPage = React.lazy(() => import("../../pages/registration/index"));
     const LoginPage = React.lazy(() => import("../../pages/login/index"));
+    const AccountPage = React.lazy(() => import("../../pages/account/index"));
 
     return <Suspense fallback={<div>Loading...</div>}>
         <Routes>
@@ -13,6 +14,7 @@ export const PublicRoute = () => {
                 <Route path="/" element={<IndexPage/>}/>
                 <Route path="/registration" element={<RegistrationPage/>}/>
                 <Route path="/login" element={<LoginPage/>}/>
+                <Route path="/account" element={<AccountPage/>}/>
             </Route>
         </Routes>
     </Suspense>
