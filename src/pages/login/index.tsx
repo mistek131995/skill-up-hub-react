@@ -1,4 +1,4 @@
-import {LoginForm} from "../../features/login-form/ui";
+import {LoginForm} from "../../features/login-form";
 import * as styles from "./styles.module.scss"
 import {AlignmentItems, Flex, JustifyContent} from "@mistek/freedom-ui";
 

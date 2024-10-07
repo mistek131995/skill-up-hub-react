@@ -2,7 +2,7 @@ import {action} from "mobx";
 import {AuthServiceClient} from "../../../shared/grpcClients/auth/AuthServiceServiceClientPb";
 import {RegisterRequest} from "../../../shared/grpcClients/auth/AuthService_pb";
 import {ServerResponse} from "../../../entities/ServerResponse";
-import {grpcClient} from "../../../shared/grpcClients/auth/grpcClient";
+import {grpcClient} from "../../../shared/grpcClients/grpcClient";
 
 const sendRegistrationForm = action(async (form:any) : Promise<ServerResponse> => {
     const client = new AuthServiceClient("http://localhost:8080/")
