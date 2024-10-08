@@ -12,12 +12,10 @@ const sendLoginForm = action(async (form: any, addToast: (toast: IToast) => void
         client.request.setPassword(form.password);
         client.request.setToken("Token");
 
-        client.rpcClient.login(client.request, {
-            "Fingerprint": fingerPrint
-        }, (err, response) => {
+        client.client.login(client.request, client.metadata, (err, response) => {
             if(err){
                 addToast({
-                    label: "Ошбика",
+                    label: "Ошибка",
                     description: err.message,
                     bg: Background.danger
                 })
