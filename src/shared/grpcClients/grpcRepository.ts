@@ -17,7 +17,7 @@ const authClientAsync = async <Request>(RequestConstructor: new () => Request): 
 }
 
 const profileClientAsync = async <Request> (RequestConstructor: new () => Request) : Promise<GrpcClient<ProfileServiceClient, Request>>  => {
-    const client = new ProfileServiceClient("http://localhost:8081/");
+    const client = new ProfileServiceClient("http://localhost:5296/");
     const metadata: Metadata = {
         "Authorization": `Bearer ${localStorage.getItem("token")}`
     };

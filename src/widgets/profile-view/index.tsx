@@ -1,6 +1,7 @@
 import * as styles from "./styles.module.scss"
 import {Label} from "@mistek/freedom-ui";
 import {Profile} from "../../entities/Profile";
+import {observer} from "mobx-react-lite";
 
 export const ProfileView = (props: Profile) => {
     return <div className={styles.profileViewContainer}>
