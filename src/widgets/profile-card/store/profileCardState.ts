@@ -1,6 +1,6 @@
 import {action, observable, runInAction} from "mobx";
-import {profileClientAsync} from "../../shared/grpcClients/grpcRepository";
-import {GetProfileRequest} from "../../shared/grpcClients/profile/ProfileService_pb";
+import {profileClientAsync} from "../../../shared/grpcClients/grpcRepository";
+import {GetProfileRequest} from "../../../shared/grpcClients/profile/ProfileService_pb";
 
 const profile = observable({
     firstName: "",

@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
-import {ProfileView} from "../../widgets/profile-view";
+import {ProfileView} from "./ui/ProfileView";
 import {observer} from "mobx-react-lite";
-import {getProfileAsync, profile} from "./profileCardState";
+import {getProfileAsync, profile} from "./store/profileCardState";
+import {ProfileEdit} from "./ui/ProfileEdit";
 
 export const ProfileCard = observer(() => {
     const [isEditMode, setIsEditMode] = useState(false);
@@ -18,6 +19,10 @@ export const ProfileCard = observer(() => {
     return <>
         {!isEditMode &&
             <ProfileView {...profile}/>
+        }
+
+        {isEditMode &&
+            <ProfileEdit/>
         }
     </>
 })

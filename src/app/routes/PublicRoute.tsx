@@ -1,7 +1,8 @@
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import React, {Suspense} from "react";
 import {Layout} from "../layout";
 import {observer} from "mobx-react-lite";
+import {authState} from "../../features/auth-store/authStore";
 
 export const PublicRoute = () => {
     const IndexPage = React.lazy(() => import("../../pages/index/index"));
@@ -24,5 +25,9 @@ export const PublicRoute = () => {
 }
 
 const GuestRoute = observer((props: {children: React.ReactNode}) => {
+
+    if(authState.token !== "")
+        return <Navigate to="/"/>
+
     return props.children;
 })
