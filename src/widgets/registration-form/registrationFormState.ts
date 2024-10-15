@@ -23,7 +23,7 @@ const sendRegistrationForm = action(async (
                 })
             }
             else{
-                setIsSuccess(true);
+                setIsSuccess(response.getIssuccess());
             }
         })
     })
