@@ -1,10 +1,15 @@
-import {observable} from "mobx";
+import {action, observable} from "mobx";
 
 const authState = observable<IAuthStore>({
-    token: ""
+    token: localStorage.getItem("token") || "",
 })
 
-export {authState}
+const loginOut = action(() => {
+    localStorage.removeItem("token");
+    authState.token = "";
+})
+
+export {authState, loginOut}
 
 interface IAuthStore {
     token: string

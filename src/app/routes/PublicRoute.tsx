@@ -11,7 +11,6 @@ export const PublicRoute = () => {
 
     return <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-            <Route path="/" element={<Layout/>}>
                 <Route path="/" element={<IndexPage/>}/>
                 <Route path="/registration" element={<GuestRoute>
                     <RegistrationPage/>
@@ -19,7 +18,6 @@ export const PublicRoute = () => {
                 <Route path="/login" element={<GuestRoute>
                     <LoginPage/>
                 </GuestRoute>}/>
-            </Route>
         </Routes>
     </Suspense>
 }

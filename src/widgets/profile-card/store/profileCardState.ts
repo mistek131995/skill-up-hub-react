@@ -1,6 +1,8 @@
-import {action, observable, runInAction} from "mobx";
-import {profileClientAsync} from "../../../shared/grpcClients/grpcRepository";
-import {GetProfileRequest} from "../../../shared/grpcClients/profile/ProfileService_pb";
+import {action, observable} from "mobx";
+import {UniversalGrpcClient} from "../../../shared/grpcClients/UniversalGrpcClient";
+import {authState} from "../../../features/auth-store/authStore";
+import {GetProfileRequest, GetProfileResponse} from "../../../shared/grpcClients/profile/ProfileService_pb";
+import {ProfileServiceClient} from "../../../shared/grpcClients/profile/ProfileServiceServiceClientPb";
 
 const profile = observable({
     firstName: "",
@@ -9,22 +11,17 @@ const profile = observable({
 });
 
 const getProfileAsync = action(async () => {
-    await profileClientAsync<GetProfileRequest>(GetProfileRequest).then(client => {
-        client.client.getProfile(client.request, client.metadata, (err, response) => {
-            if(err){
-                console.log(err);
-                console.log(err.message)
-                //Тут вызывается обработчик исключений
-            } else
-            {
+    const client = new UniversalGrpcClient("http://localhost:8081/", authState.token);
+    const request = new GetProfileRequest();
 
-                runInAction(() => {
-                    profile.firstName = response.getFirstname();
-                    profile.lastName = response.getLastname();
-                    profile.description = response.getDescription();
-                })
-            }
-        })
+    await client.callService<GetProfileRequest, GetProfileResponse, ProfileServiceClient>(
+        ProfileServiceClient,
+        (client, req, metadata, callback) => client.getProfile(req, metadata, callback),
+        request
+    ).then(response => {
+        console.log(response);
+    }).catch(error => {
+        //console.log(error);
     })
 })
 

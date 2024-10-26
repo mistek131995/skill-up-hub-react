@@ -1,6 +1,5 @@
 import * as jspb from 'google-protobuf'
 
-import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb'; // proto import: "google/protobuf/empty.proto"
 
 
 export class LoginRequest extends jspb.Message {
@@ -33,6 +32,9 @@ export class LoginResponse extends jspb.Message {
   getAccesstoken(): string;
   setAccesstoken(value: string): LoginResponse;
 
+  getRefreshtoken(): string;
+  setRefreshtoken(value: string): LoginResponse;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): LoginResponse.AsObject;
   static toObject(includeInstance: boolean, msg: LoginResponse): LoginResponse.AsObject;
@@ -44,6 +46,7 @@ export class LoginResponse extends jspb.Message {
 export namespace LoginResponse {
   export type AsObject = {
     accesstoken: string,
+    refreshtoken: string,
   }
 }
 
@@ -132,6 +135,9 @@ export namespace RestorePasswordResponse {
 }
 
 export class RefreshTokenRequest extends jspb.Message {
+  getRefreshtoken(): string;
+  setRefreshtoken(value: string): RefreshTokenRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RefreshTokenRequest.AsObject;
   static toObject(includeInstance: boolean, msg: RefreshTokenRequest): RefreshTokenRequest.AsObject;
@@ -142,6 +148,7 @@ export class RefreshTokenRequest extends jspb.Message {
 
 export namespace RefreshTokenRequest {
   export type AsObject = {
+    refreshtoken: string,
   }
 }
 
